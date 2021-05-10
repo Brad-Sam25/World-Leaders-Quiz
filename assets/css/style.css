@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Goblin+One&display=swap');
+
+* {
+    font-size: 62.5%;
+    font-family: 'Goblin One', cursive ;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+margin-top: 150px;
+}
+
+h1 {
+    font-size: 5.5rem;
+    margin-bottom: 4rem;
+}
+
+p {
+    font-size: 4.2rem;
+    margin-bottom: 4rem;
+    margin-left: 40px;
+}
+
+.button {
+    text-decoration: none;
+    padding: 2rem 0;
+    width: 30rem;
+    text-align: center;
+    color: rgb(31, 16, 2);
+    font-size: 2rem;
+    background: linear-gradient(90deg, rgb(195, 99, 202) 0%, rgb(190, 99, 202) 100%);
+    margin-bottom: 1rem;
+    border-radius: 10px;
+}
+
+.button:hover{
+    transition: transform 140ms;
+    cursor: pointer;
+    transform: scale(1.2);
+    box-shadow: 1.4 rgb(187, 2, 194);
+}
