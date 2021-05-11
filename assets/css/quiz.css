@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Goblin+One&display=swap');
+
+* {
+    font-family: 'Goblin One', cursive ;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    color: rgb(31, 16, 2);
+}
+
+.score-container {
+    display: flex;
+
+}
+
+.question-container{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0.8rem;
+}
+
+.choice-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.choice-box:hover {
+    cursor: pointer;
+    box-shadow: 1.4 rgb(187, 2, 194);
+    transform: scale(1.2);
+    transition: transform 140ms;
+}
+
+.choice-box {
+    margin-bottom: 0.8rem;
+    background: rgb(195, 99, 202);
+    border-radius: 7px;
+    min-width: 80rem;
+}
+
+.choice-text {
+    font-size: 3rem;
+}

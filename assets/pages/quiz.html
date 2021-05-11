@@ -5,18 +5,40 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>World Leaders Quiz</title>
-    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/quiz.css">
 </head>
 <body>
     <main>
-        <section class="question-container" id="question">
-            <p>What is the answer to this question?</p>
+        <section class="score-container">
+            <p class="score-title">
+                score
+            </p>
+            <p class="score-number">
+                0
+            </p>
         </section>
-        <section class="answer-container" id="answers">
-            
+        <section class="question-container">
+            <h1 id="question-text"></h1>
+        </section>
+        <section class="choice-container" id="choice">
+            <section class="choice-box">
+                <p class="choice text" id="A"></p>
+            </section>
+            <section class="choice-box">
+                <p class="choice text" id="B"></p>
+            </section>
+            <section class="choice-box">
+                <p class="choice text" id="C"></p>
+            </section>
+            <section class="choice-box">
+                <p class="choice text" id="D"></p>
+            </section>
+        </section>
+        <section class="answer-reveal">
+            <p>Wrong!</p>
         </section>
     </main>
     </body>
-    <script src="./assets/js/script.js"></script>
+    <script src="/assets/js/script.js"></script>
 </body>
 </html>
