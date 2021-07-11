@@ -9,6 +9,16 @@ let timeEl = document.querySelector("#timer");
 let resetEl = document.querySelector("#reset")
 let congratsEl = document.querySelector("#congrats")
 let finScore = document.querySelector("#final-score")
+let gamerTag = document.querySelector("#gamer-Tag");
+let bestScore = document.querySelector("#best-score");
+let firstScore = document.querySelector("#first-score");
+let secondScore = document.querySelector("#second-score");
+let thirdScore = document.querySelector("#third-score");
+let submitBtn = document.querySelector("#submitButton");
+let finalScore = document.querySelector("#final-score");
+let highScoreArea = document.querySelector("#high-scorearea");
+
+let scoreArray = []; 
 
 let outPut = undefined;
 let correctAnswer = undefined;
@@ -16,7 +26,6 @@ let correctAnswer = undefined;
 let questionCount = 0;
 let timer = 120;
 let score = 0;
-let topScore = +localStorage.getItem("topScore");
 
 let questions = [
     {
@@ -85,14 +94,6 @@ let questions = [
     }
 ]
 
-if (topScore !== null) {
-    if (score > topScore) {
-        localStorage.setItem("topScore" , score);
-    } else {
-        localStorage.setItem("topScore", score);
-    }
-}
- console.log(topScore);
 
 choiceA.addEventListener("click", function() {
     outPut = "A";
@@ -129,6 +130,10 @@ function endGame() {
     resetEl.style.visibility = "visible"
     congratsEl.innerHTML = "Congrats the quiz is over!!!"
     finScore.innerHTML = `Your score is ${score} and your time left is ${timer} ! `
+    submitBtn.style.visibility = "visible"
+    finalScore.style.visibility = "visible"
+    highScoreArea.style.visibility = 'visible'
+
     // choiceC.innerHTML = "View Highscore "
     resetEl.innerHTML = "Reset"
     choiceA.style.visibility = 'hidden'
@@ -154,6 +159,7 @@ function decideCorrect () {
 
     if (questionCount >= questions.length ) {
         endGame();
+        storeHighscore();
     }
 }
 
@@ -182,11 +188,64 @@ function handleTimer () {
     }, 1000) 
 }
 
+// function storeHighscore () {
+//     localStorage.setItem("coolestScore" , score);
+//     localStorage.setItem("gamerTag" , gamerTag.value);
+// }
+
+
+
+// function getHighScores () {
+//     let topScore = localStorage.getItem('coolestScore');
+//     let gmrTag = localStorage.getItem('gamerTag');
+
+//     allScores = [];
+
+//     if (topScore !== null && gmrTag !== null) {
+//         topScore = JSON.parse(topScore);
+//         gmrTag = JSON.parse(gmrTag);
+
+//         allScores = push(gmTag)
+//         allScores = push(topScore)
+
+//         console.log(allScores)
+
+//         allScores.forEach( entry => {
+//             console.log(entry)
+//         })
+
+//     }
+// }
+
+submitBtn.addEventListener("click", (event) => {
+    event.preventDefault();
+    let name = gamerTag.value;
+    console.log('name', name);
+    console.log('gamerTag', gamerTag);
+    let obj = {
+        playerName: name,
+        score: score
+    };
+    scoreArray.push(obj);
+    scoreArray.sort((a,b)=> b.score - a.score)
+
+    if(scoreArray.length >= 1) {
+        firstScore.textContent = `${scoreArray[0].playerName}: ${scoreArray[0].score}`
+    }
+    if(scoreArray.length >= 2) {
+        secondScore.textContent = `${scoreArray[1].playerName}: ${scoreArray[1].score}`
+    }
+    if(scoreArray.length >= 3) {
+        thirdScore.textContent = `${scoreArray[2].playerName}: ${scoreArray[2].score}`
+    }
+})
+
 function start() {
     choiceA.style.visibility = 'visible'
     choiceB.style.visibility = 'visible'
     choiceC.style.visibility = 'visible'
     choiceD.style.visibility = 'visible'
+    // highScoreArea.style.visibility = 'hidden'
 
     congratsEl.style.visibility = "hidden"
     finScore.style.visibility = 'hidden'

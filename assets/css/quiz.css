@@ -64,3 +64,10 @@ body {
 .choice-text {
     font-size: 3rem;
 }
+
+#submitButton {
+    margin-bottom: 0.8rem;
+    background: rgb(195, 99, 202);
+    border-radius: 7px;
+    min-width: 80rem;
+}
