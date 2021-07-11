@@ -126,7 +126,7 @@ resetEl.addEventListener("click",function() {
 function endGame() {
     congratsEl.style.visibility = "visible"
     finScore.style.visibility = 'visible'
-    // choiceC.innerHTML = "View Highscore "
+
     resetEl.style.visibility = "visible"
     congratsEl.innerHTML = "Congrats the quiz is over!!!"
     finScore.innerHTML = `Your score is ${score} and your time left is ${timer} ! `
@@ -134,7 +134,7 @@ function endGame() {
     finalScore.style.visibility = "visible"
     highScoreArea.style.visibility = 'visible'
 
-    // choiceC.innerHTML = "View Highscore "
+
     resetEl.innerHTML = "Reset"
     choiceA.style.visibility = 'hidden'
     choiceB.style.visibility = 'hidden'
@@ -188,35 +188,6 @@ function handleTimer () {
     }, 1000) 
 }
 
-// function storeHighscore () {
-//     localStorage.setItem("coolestScore" , score);
-//     localStorage.setItem("gamerTag" , gamerTag.value);
-// }
-
-
-
-// function getHighScores () {
-//     let topScore = localStorage.getItem('coolestScore');
-//     let gmrTag = localStorage.getItem('gamerTag');
-
-//     allScores = [];
-
-//     if (topScore !== null && gmrTag !== null) {
-//         topScore = JSON.parse(topScore);
-//         gmrTag = JSON.parse(gmrTag);
-
-//         allScores = push(gmTag)
-//         allScores = push(topScore)
-
-//         console.log(allScores)
-
-//         allScores.forEach( entry => {
-//             console.log(entry)
-//         })
-
-//     }
-// }
-
 submitBtn.addEventListener("click", (event) => {
     event.preventDefault();
     let name = gamerTag.value;
@@ -245,11 +216,11 @@ function start() {
     choiceB.style.visibility = 'visible'
     choiceC.style.visibility = 'visible'
     choiceD.style.visibility = 'visible'
-    // highScoreArea.style.visibility = 'hidden'
+
 
     congratsEl.style.visibility = "hidden"
     finScore.style.visibility = 'hidden'
-    // choiceC.innerHTML = "View Highscore "
+
     resetEl.style.visibility = "hidden"
 
     questionCount = 0;
